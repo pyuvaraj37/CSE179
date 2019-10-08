@@ -1,0 +1,69 @@
+Lab 3:
+
+Task1: 
+	1.1) 4 Threads
+			100 x 100 * 100 x 1 : 84ms
+			1000 x 1000 * 1000 x 1 : 2738ms
+		10 Threads
+			100 x 100 * 100 x 1 : 84ms
+			1000 x 1000 * 1000 x 1 : 2765ms
+
+	1.2) 4 Threads
+		Dynamic - 20 Chunks
+			100 x 100 * 100 x 1 : 83ms
+			1000 x 1000 * 1000 x 1 : 2774ms
+
+		Static - 20 Chunks
+			100 x 100 * 100 x 1 : 81ms
+			1000 x 1000 * 1000 x 1 : 2790ms
+
+
+Task2:
+	Running the program serial creates an output of:
+	 In 0.000424 seconds, The sum is 5030.674031 
+
+	Running the program parallel creates and output of: (4 Threads)
+	 In 0.004112 seconds, The sum is 5030.674031 
+
+	The program creates the same sum, but due to the parallelism overhead. It takes longer to calculate. 
+
+Task 3:
+	
+	3.1)
+		Serial:
+			 	Each linked list node will be processed by function 'processwork()'
+  				Each ll node will compute 5 fibonacci numbers beginning with 38
+				38 : 39088169
+				39 : 63245986
+				40 : 102334155
+				41 : 165580141
+				42 : 267914296
+				43 : 433494437
+				Compute Time: 8.614176 seconds
+
+		Parallel:
+				Each linked list node will be processed by function 'processwork()'
+				Each ll node will compute 5 fibonacci numbers beginning with 38
+				38 : 39088169
+				39 : 63245986
+				40 : 102334155
+				41 : 165580141
+				42 : 267914296
+				43 : 433494437
+				Compute Time: 4.445011 seconds
+
+		Changing N to 10:
+				Each linked list node will be processed by function 'processwork()'
+				Each ll node will compute 10 fibonacci numbers beginning with 38
+				38 : 39088169
+				39 : 63245986
+				40 : 102334155
+				41 : 165580141
+				42 : 267914296
+				43 : 433494437
+				44 : 701408733
+				45 : 1134903170
+				46 : 1836311903
+				47 : -1323752223
+				48 : 512559680
+				Compute Time: 52.491510 seconds

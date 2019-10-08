@@ -1,0 +1,75 @@
+Lab 8: 
+
+	1. Each cell has an associated thread. 
+
+	2. 	First Test:
+		Enter M: 
+		6
+		Enter N: 
+		9
+		Enter K: 
+		4
+		-------BEFORE LIFE CYCLE--------
+		1 0 1 1 1 1 0 0 1 
+		1 0 1 0 1 1 0 0 0 
+		0 0 1 0 1 1 0 0 0 
+		1 1 1 1 0 0 0 1 1 
+		1 0 1 0 1 1 1 1 0 
+		1 0 0 1 0 1 0 1 0 
+		-------AFTER 4 LIFE CYCLES-------
+		1 1 1 0 1 0 1 1 1 
+		1 1 0 1 0 0 0 0 0 
+		0 1 0 0 0 1 0 0 1 
+		0 1 1 0 1 0 0 0 0 
+		1 1 0 1 1 0 0 1 1 
+		0 1 0 1 0 1 1 1 0 
+		GPU run time: 79
+
+		Second Test:
+		Enter M: 
+		2
+		Enter N: 
+		17
+		Enter K: 
+		5
+		-------BEFORE LIFE CYCLE--------
+		1 0 1 1 1 1 0 0 1 1 0 1 0 1 1 0 0 
+		0 0 0 1 0 1 1 0 0 0 1 1 1 1 0 0 0 
+		-------AFTER 5 LIFE CYCLES-------
+		1 0 1 1 1 0 1 0 1 0 1 1 0 1 1 1 1 
+		1 0 1 1 1 0 1 0 1 0 1 1 0 1 1 1 1
+		GPU run time: 88
+
+		Third Test:
+		Enter M: 
+		5
+		Enter N: 
+		8
+		Enter K: 
+		2
+		-------BEFORE LIFE CYCLE--------
+		1 0 1 1 1 1 0 0 
+		1 1 0 1 0 1 1 0 
+		0 0 0 0 1 0 1 1 
+		0 0 0 1 1 1 1 0 
+		0 0 1 1 1 0 1 0 
+		-------AFTER 2 LIFE CYCLES-------
+		1 0 1 0 1 0 1 1 
+		0 0 0 1 1 1 0 1 
+		1 0 1 1 0 0 1 0 
+		1 0 1 1 0 0 1 1 
+		0 1 0 1 0 0 0 0 
+		GPU run time: 51
+
+	3. 
+		First Test Time: 79ms
+		Second Test Time: 88ms
+		Third Test Time: 51ms
+
+	4. Larger matrix sizes cause an error, such as 20x30. This may due to be the warp size of the gpu only being 32. 
+
+
+
+
+
+

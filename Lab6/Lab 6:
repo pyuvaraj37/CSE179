@@ -1,0 +1,256 @@
+Lab 6:
+
+Used as reference: https://computing.llnl.gov/tutorials/mpi/
+
+
+1.1)Number of Processes: 4
+	Process 0 sending 100 to Process 1.
+	Process 0 sending 100 to Process 2.
+	Process 0 sending 100 to Process 3.
+	Process 0 ran for 88 ms.
+	Process 3 receive 100 to Process 0.
+	Process 2 receive 100 to Process 0.
+	Process 2 ran for 160 ms.
+	Process 1 receive 100 to Process 0.
+	Process 1 ran for 243 ms.
+	Process 3 ran for 143 ms.	
+
+	Number of Processes: 6
+	Process 0 sending 100 to Process 1.
+	Process 0 sending 100 to Process 2.
+	Process 0 sending 100 to Process 3.
+	Process 0 sending 100 to Process 4.
+	Process 1 receive 100 to Process 0.
+	Process 2 receive 100 to Process 0.
+	Process 0 sending 100 to Process 5.
+	Process 2 ran for 72 ms.
+	Process 1 ran for 72 ms.
+	Process 0 ran for 81 ms.
+	Process 4 receive 100 to Process 0.
+	Process 4 ran for 175 ms.
+	Process 3 receive 100 to Process 0.
+	Process 3 ran for 139 ms.
+	Process 5 receive 100 to Process 0.
+	Process 5 ran for 917 ms.
+
+	Number of Processes: 8
+	Process 0 sending 100 to Process 1.
+	Process 0 sending 100 to Process 2.
+	Process 0 sending 100 to Process 3.
+	Process 0 sending 100 to Process 4.
+	Process 2 receive 100 to Process 0.
+	Process 0 sending 100 to Process 5.
+	Process 2 ran for 37 ms.
+	Process 0 sending 100 to Process 6.
+	Process 0 sending 100 to Process 7.
+	Process 0 ran for 56 ms.
+	Process 5 receive 100 to Process 0.
+	Process 6 receive 100 to Process 0.
+	Process 6 ran for 11 ms.
+	Process 5 ran for 98 ms.
+	Process 1 receive 100 to Process 0.
+	Process 1 ran for 143 ms.
+	Process 7 receive 100 to Process 0.
+	Process 7 ran for 14 ms.
+	Process 4 receive 100 to Process 0.
+	Process 4 ran for 165 ms.
+	Process 3 receive 100 to Process 0.
+	Process 3 ran for 105 ms.
+
+
+	 I ran the program multiple times. Process 0 usually has the shortest execution time. This makes sense since the other processes are waiting for 0 to manipulate the variable then send it out. When process numbers become larger though, recieving processes finish before 0 has finished sending. This can be seen in the third chunk of outputs. Process 2 received the message from 0 extremely earlier, so before 0 could finish 2 finishes. 
+
+	 Now what happens next depends on which Process receives the modified variable first. It varies, I have had executions where the last process receives first, etc. So the execution time is dependent on when the message is received.  
+
+	 Generally, Process 0 will not have the longest execution time. 
+
+1.2)Number of Processes: 4
+	Process 0 has an array [ 0 1 2 3].
+	Process 0 received 0
+	and sends 0
+	Process 1 received 1
+	and sends 2
+	Process 2 received 2
+	Process 1 ran for 43 ms.
+	and sends 4
+	Process 2 ran for 55 ms.
+	Process 3 received 3
+	and sends 6
+	Process 3 ran for 66 ms.
+	Process 0 now has an array [ 0 2 4 6].
+	Process 0 ran for 93 ms.
+
+	Number of Processes: 6
+	Process 0 has an array [ 0 1 2 3 4 5].
+	Process 1 received 1
+	Process 0 received 0
+	and sends 2
+	and sends 0
+	Process 1 ran for 47 ms.
+	Process 4 received 4
+	Process 3 received 3
+	and sends 8
+	and sends 6
+	Process 4 ran for 66 ms.
+	Process 3 ran for 22 ms.
+	Process 2 received 2
+	and sends 4
+	Process 2 ran for 131 ms.
+	Process 5 received 5
+	and sends 10
+	Process 5 ran for 28 ms.
+	Process 0 now has an array [ 0 2 4 6 8 10].
+	Process 0 ran for 204 ms.
+
+	Number of Processes: 8
+	Process 0 has an array [ 0 1 2 3 4 5 6 7].
+	Process 0 received 0
+	Process 2 received 2
+	and sends 0
+	and sends 4
+	Process 6 received 6
+	Process 2 ran for 16 ms.
+	and sends 12
+	Process 4 received 4
+	Process 6 ran for 19 ms.
+	and sends 8
+	Process 4 ran for 62 ms.
+	Process 5 received 5
+	and sends 10
+	Process 3 received 3
+	and sends 6
+	Process 5 ran for 83 ms.
+	Process 3 ran for 75 ms.
+	Process 7 received 7
+	and sends 14
+	Process 7 ran for 89 ms.
+	Process 1 received 1
+	and sends 2
+	Process 1 ran for 152 ms.
+	Process 0 now has an array [ 0 2 4 6 8 10 12 14].
+	Process 0 ran for 169 ms.
+
+	Conversly, Using the scatter and gather. Process 0 will have the longest run time. 
+
+2.1)Yes, the global MPI_COMM_WORLD rank is that same as the local rank. 
+	
+	Coordinates: (0,0)
+	Local rank: 0, MPI_COMM_WORLD rank: 0
+	Coordinates: (0,1)
+	Local rank: 1, MPI_COMM_WORLD rank: 1
+	Coordinates: (1,0)
+	Local rank: 4, MPI_COMM_WORLD rank: 4
+	Coordinates: (1,1)
+	Local rank: 5, MPI_COMM_WORLD rank: 5
+	Coordinates: (2,0)
+	Local rank: 8, MPI_COMM_WORLD rank: 8
+	Coordinates: (0,3)
+	Local rank: 3, MPI_COMM_WORLD rank: 3
+	Coordinates: (2,1)
+	Local rank: 9, MPI_COMM_WORLD rank: 9
+	Coordinates: (0,2)
+	Local rank: 2, MPI_COMM_WORLD rank: 2
+	Coordinates: (1,2)
+	Local rank: 6, MPI_COMM_WORLD rank: 6
+	Coordinates: (3,0)
+	Local rank: 12, MPI_COMM_WORLD rank: 12
+	Coordinates: (1,3)
+	Local rank: 7, MPI_COMM_WORLD rank: 7
+	Coordinates: (3,1)
+	Local rank: 13, MPI_COMM_WORLD rank: 13
+	Coordinates: (2,2)
+	Local rank: 10, MPI_COMM_WORLD rank: 10
+	Coordinates: (2,3)
+	Local rank: 11, MPI_COMM_WORLD rank: 11
+	Coordinates: (3,2)
+	Local rank: 14, MPI_COMM_WORLD rank: 14
+	Coordinates: (3,3)
+	Local rank: 15, MPI_COMM_WORLD rank: 15
+
+2.2)Period needs to be changed to 1 for each dimension, to allow wrap around.
+	rank= 8:  4 12 11 9
+	rank= 0:  12 4 3 1
+	rank= 12:  8 0 15 13
+	rank= 13:  9 1 12 14
+	rank= 9:  5 13 8 10
+	rank= 15:  11 3 14 12
+	rank= 14:  10 2 13 15
+	rank= 1:  13 5 0 2
+	rank= 5:  1 9 4 6
+	rank= 4:  0 8 7 5
+	rank= 2:  14 6 1 3
+	rank= 3:  15 7 2 0
+	rank= 6:  2 10 5 7
+	rank= 11:  7 15 10 8
+	rank= 7:  3 11 6 4
+	rank= 10:  6 14 9 11
+
+3.1)
+	0000000           0           1           2           3
+	0000020           4           5           6           7
+	0000040           8           9          10          11
+	0000060          12          13          14          15
+	0000100          16          17          18          19
+	0000120          20          21          22          23
+	0000140          24          25          26          27
+	0000160          28          29          30          31
+	0000200          32          33          34          35
+	0000220          36          37          38          39
+	0000240
+
+ 3.2)
+
+	Rank 0: wrote: 0 and read: 0
+	Rank 1: wrote: 10 and read: 10
+	Rank 0: wrote: 1 and read: 1
+	Rank 1: wrote: 11 and read: 11
+	Rank 1: wrote: 12 and read: 12
+	Rank 1: wrote: 13 and read: 13
+	Rank 1: wrote: 14 and read: 14
+	Rank 0: wrote: 2 and read: 2
+	Rank 1: wrote: 15 and read: 15
+	Rank 0: wrote: 3 and read: 3
+	Rank 1: wrote: 16 and read: 16
+	Rank 0: wrote: 4 and read: 4
+	Rank 1: wrote: 17 and read: 17
+	Rank 0: wrote: 5 and read: 5
+	Rank 1: wrote: 18 and read: 18
+	Rank 0: wrote: 6 and read: 6
+	Rank 1: wrote: 19 and read: 19
+	Rank 0: wrote: 7 and read: 7
+	Rank 0: wrote: 8 and read: 8
+	Rank 0: wrote: 9 and read: 9
+	Rank 3: wrote: 30 and read: 30
+	Rank 3: wrote: 31 and read: 31
+	Rank 3: wrote: 32 and read: 32
+	Rank 3: wrote: 33 and read: 33
+	Rank 3: wrote: 34 and read: 34
+	Rank 3: wrote: 35 and read: 35
+	Rank 3: wrote: 36 and read: 36
+	Rank 3: wrote: 37 and read: 37
+	Rank 3: wrote: 38 and read: 38
+	Rank 3: wrote: 39 and read: 39
+	Rank 2: wrote: 20 and read: 20
+	Rank 2: wrote: 21 and read: 21
+	Rank 2: wrote: 22 and read: 22
+	Rank 2: wrote: 23 and read: 23
+	Rank 2: wrote: 24 and read: 24
+	Rank 2: wrote: 25 and read: 25
+	Rank 2: wrote: 26 and read: 26
+	Rank 2: wrote: 27 and read: 27
+	Rank 2: wrote: 28 and read: 28
+	Rank 2: wrote: 29 and read: 29
+
+3.3)
+
+	0000000           0           1          10          11
+	0000020          20          21          30          31
+	0000040           2           3          12          13
+	0000060          22          23          32          33
+	0000100           4           5          14          15
+	0000120          24          25          34          35
+	0000140           6           7          16          17
+	0000160          26          27          36          37
+	0000200           8           9          18          19
+	0000220          28          29          38          39
+	0000240

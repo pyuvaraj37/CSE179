@@ -1,0 +1,17 @@
+Lab 4
+
+Task 1:
+
+		Samples Points per Threads 10000
+		Threads 16 - ESTIMATE FOR PI: 3.139475 
+		Run time - 5450
+		Threads 32 -  ESTIMATE FOR PI: 3.548375
+		Run time - 8159 ms
+		Threads 4 - ESTIMATE FOR PI: 3.137500
+		Run time - 2514 ms
+		Threads 8 - ESTIMATE FOR PI: 4.776450
+		Run time - 4179 ms
+
+Task 2:
+	
+		The problem with bankAccount.c lies in the multiple threads trying to change the value of the bank account. so we make the deposit and withdraw area the critical area. Adding a lock and unlock, before and after makes it so only a single thread is manipulating the bank account. 

@@ -1,0 +1,19 @@
+Lab 9:
+
+	I could not figure out how to set the MPI number of processes after the program has started so before starting he program we need to decide what n size and block size will be. n/block = process number. 
+
+	N = 16 
+	Block = 4
+	Ran for 14ms
+
+	N = 8 
+	Block = 2
+	Ran for 8ms
+
+	N = 160 
+	Block = 40
+	Ran for 48ms
+
+	N = 140
+	Block = 80
+	Ran for 63ms 

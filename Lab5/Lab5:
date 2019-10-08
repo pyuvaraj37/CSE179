@@ -1,0 +1,54 @@
+Lab5:
+
+Task1:
+	
+	Compiled and ran the program with:
+
+		mpicc MPI_simple.c -o hello 
+
+		mpirun -np 4 hello
+
+		Process 0 on prithviraj-MacBookPro out of 4
+		Process 2 on prithviraj-MacBookPro out of 4
+		Process 1 on prithviraj-MacBookPro out of 4
+		Process 3 on prithviraj-MacBookPro out of 4
+
+	The -machinefile flag does not seem to be an option for mpirun. 
+
+Task2:
+	
+	Number of processes: 4
+		Process: 1 received message: 0 from Process: 0.
+		Process: 2 received message: 1 from Process: 1.
+		Process: 3 received message: 2 from Process: 2.
+		Process: 0 received message: 3 from Process: 3.
+
+	Number of processes: 8
+		Process: 1 received message: 0 from Process: 0.
+		Process: 2 received message: 1 from Process: 1.
+		Process: 3 received message: 2 from Process: 2.
+		Process: 4 received message: 3 from Process: 3.
+		Process: 5 received message: 4 from Process: 4.
+		Process: 6 received message: 5 from Process: 5.
+		Process: 7 received message: 6 from Process: 6.
+		Process: 0 received message: 7 from Process: 7.
+
+	Number of processes: 16
+		Process: 1 received message: 0 from Process: 0.
+		Process: 2 received message: 1 from Process: 1.
+		Process: 3 received message: 2 from Process: 2.
+		Process: 4 received message: 3 from Process: 3.
+		Process: 5 received message: 4 from Process: 4.
+		Process: 6 received message: 5 from Process: 5.
+		Process: 7 received message: 6 from Process: 6.
+		Process: 8 received message: 7 from Process: 7.
+		Process: 9 received message: 8 from Process: 8.
+		Process: 10 received message: 9 from Process: 9.
+		Process: 11 received message: 10 from Process: 10.
+		Process: 12 received message: 11 from Process: 11.
+		Process: 13 received message: 12 from Process: 12.
+		Process: 14 received message: 13 from Process: 13.
+		Process: 15 received message: 14 from Process: 14.
+		Process: 0 received message: 15 from Process: 15.
+
+

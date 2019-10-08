@@ -1,0 +1,33 @@
+Lab 7: 
+
+1)
+	-There is only 1 GPU device in the machine: NVIDIA Tegra X2
+	-Total amount of shared memory per block: 49152 bytes
+	-Maximum number of threads per block: 1024
+	-Total number of registers available per block: 32768
+	-Total amount of global memory: 7846 MBytes (8227401728 bytes)
+
+2)
+	REF: http://www.cuvilib.com/Reduction.pdf
+
+	pyuvaraj@tegra-ubuntu:~$ ./a.out
+	2048
+	GPU result: 0 GPU run time: 38
+	CPU result: 10000 CPU run time: 16
+
+	pyuvaraj@tegra-ubuntu:~$ ./a.out
+	4096
+	GPU result: 0 GPU run time: 49
+	CPU result: 10000 CPU run time: 50
+
+	pyuvaraj@tegra-ubuntu:~$ ./a.out
+	8192
+	GPU result: 0 GPU run time: 63
+	CPU result: 10000 CPU run time: 143
+
+	pyuvaraj@tegra-ubuntu:~$ ./a.out
+	16384
+	GPU result: 0 GPU run time: 57
+	CPU result: 10000 CPU run time: 231
+
+	As N increases, the CPU becomes less efficient and the GPU keeps a fairly constant speed. The reason for the final result being 0 is an error on my part with returning memory from the device. I did not have enough time to fix it. 
