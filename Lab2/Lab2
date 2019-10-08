@@ -1,0 +1,16 @@
+Lab 2:
+
+Task1: Included the openmp_simple.cc. The problem with the code is due to a sychronization issue with all the threads printing at once. 
+
+Task2: Included the modified make file, and lulesh.cc in task3_lulesh.tar.gz
+	
+	Analysis: 
+		Using these parameters.
+
+		Running problem size 30^3 per domain until completion
+		Num processors: 1
+		Num threads: 48
+		Total number of elements: 27000
+
+		The total of cycles stalled waiting for memory writes: 9222760334 
+		The total number of cache misses: 50662156 

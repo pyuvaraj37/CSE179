@@ -1,0 +1,26 @@
+Lab 1:
+
+Task1: Included Makefile uses .c files in src, .h file in include, and puts the .o files in obj. The main program file is put in the main directory.
+
+Task2: Adding new variables start and end that are timevals, and wrapping the for loop with a gettimeofday() at the start and end of the loop. The subtracting the start time from the end time creates the runtime for the loop.
+
+	Input: 60 | Runtime: 47 ms
+	Input: 1500 | Runtime: 1773 ms
+	Input: 20000 | Runtime: 19952 ms
+
+Task3: I have a Mac so gprof doesn't work on. SO I used the built in profiling tool called Instruments, this may lead to a variation. Instruments does not have self-call time rather self-weight. As it is measured in seconds I will assume they are the same.
+	
+	1. The most time consuming function calls are:
+
+		LagrangeLeapFrog() - 14.57s
+			CalcKinematicsForElems() - 2.19s
+				CalcElemVolume() - 612ms
+				CalcElemShapeFunctionDerivatives() - 631ms
+				DYLD-STUB$$mcount - 31ms
+			CalcElemShapeFunctionDerivatives() - 710ms
+
+	2. The call of the functions are displayed above.
+	LagrangeLeapFrog() can call CalcKinematicsForElems() and CalcElemShapeFunctionDerivatives().
+	CalcKinematicsForElems() can call CalcElemVolume() and CalcElemShapeFunctionDerivatives().
+
+
